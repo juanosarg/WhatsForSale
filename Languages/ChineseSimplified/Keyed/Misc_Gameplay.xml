@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <WDYS.CommandShowSettlementGoods>待售物品</WDYS.CommandShowSettlementGoods>
+  <WDYS.CommandShowSettlementGoodsDesc>查看该基地的待售物品。</WDYS.CommandShowSettlementGoodsDesc>
+  <WDYS.WindowTitle>{0} 的待售物品 (货物刷新剩余 {1})</WDYS.WindowTitle>
+  <WDYS.BeforeRestock>货物刷新剩余 {0} </WDYS.BeforeRestock>
+  <WDYS.HaveXSilver>{0} 的白银: {1} </WDYS.HaveXSilver>
+  <WDYS.SearchBar>在库存中搜索: </WDYS.SearchBar>
+  <WDYS.MarketValue>市场价。此价格未计算你殖民者的价格改善影响。</WDYS.MarketValue>
+  <WDYS.Pawn>你最佳交易者为 {0} ({1} 的价格改善)。显示的物品价格已计算价格改善。</WDYS.Pawn>
+  <WDYS.NeedTradeConsoleUI>缺少已通电的通讯台接收待售物品信息(可在Mod选项中关闭)</WDYS.NeedTradeConsoleUI>
+  <WDYS.Pawns>生物</WDYS.Pawns>
+  <WDYS.ResourcesRaw>原材料</WDYS.ResourcesRaw>
+  <WDYS.Manufactured>制成品</WDYS.Manufactured>
+  <WDYS.Apparel>衣着</WDYS.Apparel>
+  <WDYS.Weapons>武器</WDYS.Weapons>
+  <WDYS.Items>物品</WDYS.Items>
+  <WDYS.Buildings>建筑</WDYS.Buildings>
+  <WDYS.Other>其它</WDYS.Other>
+  <WDYS.Foods>食物</WDYS.Foods>
+  <WDYS.Quit>关闭</WDYS.Quit>
+  <WDYS.Reset>刷新</WDYS.Reset>
+  <WDYS.ResetToolTip>刷新待售物品信息，更新价钱...(为保证游戏流畅性信息不会自动刷新)</WDYS.ResetToolTip>
+  <WDYS>What's for sale?</WDYS>
+
+  <WDYS.OnlyIndustrial>仅能查看工业时代以上科技的派系基地的待售物品信息</WDYS.OnlyIndustrial>
+  <WDYS.NeedTradeConsole>需要通讯台接收待售物品信息: </WDYS.NeedTradeConsole>
+
+</LanguageData>

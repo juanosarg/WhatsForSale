@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<WDYS.CommandShowSettlementGoods>What's for sale?</WDYS.CommandShowSettlementGoods>
+	<WDYS.CommandShowSettlementGoodsDesc>Show what this settlement sells.</WDYS.CommandShowSettlementGoodsDesc>
+	<WDYS.WindowTitle>{0} current trade stock ({1} before restock)</WDYS.WindowTitle>
+	<WDYS.BeforeRestock>{0} before restock</WDYS.BeforeRestock>
+	<WDYS.HaveXSilver>{0} have {1} silver</WDYS.HaveXSilver>
+	<WDYS.SearchBar>Search in trade stock: </WDYS.SearchBar>
+	<WDYS.MarketValue>Market value. This doesn't take into account your potential colonist price impact.</WDYS.MarketValue>
+	<WDYS.Pawn>{0} is your best trader ({1} improvement). Price will be showed according to this.</WDYS.Pawn>
+	<WDYS.NeedTradeConsoleUI>You need a powered trade console to receive trade stock information</WDYS.NeedTradeConsoleUI>
+	<WDYS.Pawns>Pawns</WDYS.Pawns>
+	<WDYS.ResourcesRaw>Raw ressources</WDYS.ResourcesRaw>
+	<WDYS.Manufactured>Manufactured</WDYS.Manufactured>
+	<WDYS.Apparel>Apparel</WDYS.Apparel>
+	<WDYS.Weapons>Weapons</WDYS.Weapons>
+	<WDYS.Items>Items</WDYS.Items>
+	<WDYS.Buildings>Buildings</WDYS.Buildings>
+	<WDYS.Other>Other</WDYS.Other>
+	<WDYS.Foods>Foods</WDYS.Foods>
+	<WDYS.Quit>Close</WDYS.Quit>
+	<WDYS.Reset>Reset</WDYS.Reset>
+	<WDYS.ResetToolTip>Reset window.\n(This is not done automatically for performance reasons)</WDYS.ResetToolTip>
+	<WDYS>What's for sale?</WDYS>
+
+	<WDYS.OnlyIndustrial>Only industrial and higher tech level faction can send you their trade stock information</WDYS.OnlyIndustrial>
+    <WDYS.NeedTradeConsole>You need a trade console to receive trade stock information</WDYS.NeedTradeConsole>
+    <WDYS.GlobalStockTab>Global search tab</WDYS.GlobalStockTab>
+	<WDYS.MaxDays>Only get trade stock of settlement {0} tiles or less away from the negotiator settlement/caravan</WDYS.MaxDays>
+	<WDYS.NoTrader>No traders available</WDYS.NoTrader>
+	<WDYS.TilesAway>{0} is {1} tiles away</WDYS.TilesAway>
+	<WDYS.EnableMaxTile>Enable distance filtering</WDYS.EnableMaxTile>
+	<WDYS.NoPath>Can't go there on foot</WDYS.NoPath>
+</LanguageData>
