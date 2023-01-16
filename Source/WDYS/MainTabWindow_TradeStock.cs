@@ -466,14 +466,15 @@ namespace WDYS
             GUI.BeginGroup(rect);
             float num = rect.width;
 
-            Rect countRect = new Rect(num - 80f, 0f, 75f, rect.height);
+            Rect countRect = new Rect(num - 55f, 0f, 55f, rect.height);
             DrawCount(countRect, trad);
 
-            Rect priceRect = new Rect(num - 180f, 0f, 100f, rect.height);
+            Rect priceRect = new Rect(num - 55f - 55f, 0f, 55f, rect.height);
             DrawPrice(priceRect, trad);
 
-            num -= 590f;
-            DrawTraderInfo(rect, trader, num);
+            num -= countRect.width + priceRect.width;
+
+            DrawTraderInfo(rect, trader, ref num);
 
             DrawThingInfo(rect, trad, num);
 
@@ -505,34 +506,35 @@ namespace WDYS
             Widgets.Label(rect, trad.CountHeldBy(Transactor.Trader).ToStringCached());
         }
 
-        private void DrawTraderInfo(Rect rect, ITrader trader, float num)
+        private void DrawTraderInfo(Rect rect, ITrader trader, ref float num)
         {
             Settlement settlement = trader as Settlement;
             if (settlement.Spawned)
             {
-                // Draw icon
-                GUI.color = trader.Faction.Color;
-                Rect factionIconRect = new Rect(num, 0f, 30f, rect.height);
-                GUI.DrawTexture(factionIconRect, trader.Faction.def.FactionIcon);
-                GUI.color = Color.white;
-                // Mouse over icon
-                if (Mouse.IsOver(factionIconRect))
-                {
-                    Widgets.DrawHighlight(factionIconRect);
-                    TooltipHandler.TipRegion(factionIconRect, "WDYS.HaveXSilver".Translate(settlement.Name, tradersCurrency[trader]));
-                }
+                // Restock info
+                Rect settlementRestockRect = new Rect(num - 175f, 0f, 175f, rect.height);
+                Widgets.Label(settlementRestockRect, "WDYS.BeforeRestock".Translate(traderRestockIn[settlement]));
+                num -= 175f;
                 // Settlement name
                 Text.Anchor = TextAnchor.MiddleLeft;
-                Rect settlementNameRect = new Rect(num + 40f, 0f, 120f, rect.height);
+                Rect settlementNameRect = new Rect(num - 120f, 0f, 120f, rect.height);
                 Widgets.Label(settlementNameRect, settlement.Name.TrimmedToLength(16));
-                // Mouse over name
-                if (Mouse.IsOver(settlementNameRect))
-                {
-                    Widgets.DrawHighlight(settlementNameRect);
-                    TooltipHandler.TipRegion(settlementNameRect, traderTileDistance[settlement] != -1 && traderTileDistance[settlement] != int.MaxValue ? "WDYS.TilesAway".Translate(settlement.Name, traderTileDistance[settlement]) : "WDYS.NoPath".Translate());
-                }
+                num -= 120f;
+                // Draw icon
+                GUI.color = trader.Faction.Color;
+                Rect factionIconRect = new Rect(num - 35f, 0f, 30f, rect.height);
+                GUI.DrawTexture(factionIconRect, trader.Faction.def.FactionIcon);
+                GUI.color = Color.white;
+                num -= 35f;
                 // Invisible jump rect
-                Rect jumpRect = new Rect(num, 0f, 30f + 120f, rect.height);
+                Rect jumpRect = new Rect(num, 0f, 150f, rect.height);
+                if (Mouse.IsOver(jumpRect))
+                {
+                    Widgets.DrawHighlight(jumpRect);
+                    var dist = traderTileDistance[settlement] != -1 && traderTileDistance[settlement] != int.MaxValue ? "WDYS.TilesAway".Translate(settlement.Name, traderTileDistance[settlement]) : "WDYS.NoPath".Translate();
+                    var silver = "WDYS.HaveXSilver".Translate(settlement.Name, tradersCurrency[trader]);
+                    TooltipHandler.TipRegion(jumpRect, dist + "\n" + silver + ".");
+                }
                 if (Widgets.ButtonInvisible(jumpRect))
                 {
                     CameraJumper.TryJump(settlement.Tile);
@@ -540,18 +542,30 @@ namespace WDYS
                     Find.WorldSelector.Select(settlement);
                     Close();
                 }
-                // Restock info
-                Rect settlementRestockRect = new Rect(num + settlementNameRect.width + 10f + 90f, 0f, 200f, rect.height);
-                Widgets.Label(settlementRestockRect, "WDYS.BeforeRestock".Translate(traderRestockIn[settlement]));
-                Text.Anchor = TextAnchor.MiddleRight;
             }
         }
 
         private void DrawThingInfo(Rect rect, Tradeable trad, float num)
         {
             TransferableUIUtility.DoExtraIcons(trad, rect, ref num);
-            if (ModsConfig.IdeologyActive)
-                TransferableUIUtility.DrawCaptiveTradeInfo(trad, TradeSession.trader, rect, ref num);
+
+            if (ModsConfig.IdeologyActive && trad.AnyThing is Pawn pawn && pawn.guest != null)
+            {
+                var label = (pawn.guest.joinStatus == JoinStatus.JoinAsColonist ? "JoinsAsColonist" : "JoinsAsSlave").Translate();
+                var joinRect = new Rect(num - 140f, 0.0f, 140f, rect.height);
+                num -= 140f;
+
+                Text.Anchor = TextAnchor.MiddleLeft;
+                Widgets.Label(joinRect, label);
+                Text.Anchor = TextAnchor.UpperLeft;
+
+                if (Mouse.IsOver(joinRect))
+                {
+                    Widgets.DrawHighlight(joinRect);
+                    TooltipHandler.TipRegion(joinRect, (pawn.guest.joinStatus == JoinStatus.JoinAsColonist ? "JoinsAsColonistDesc" : "JoinsAsSlaveDesc").Translate());
+                }
+            }
+
             Rect idRect = new Rect(0f, 0f, num, rect.height);
             TransferableUIUtility.DrawTransferableInfo(trad, idRect, Color.white);
         }

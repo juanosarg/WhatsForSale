@@ -30,6 +30,6 @@
 	<WDYS.NoTrader>No traders available</WDYS.NoTrader>
 	<WDYS.TilesAway>{0} is {1} tiles away</WDYS.TilesAway>
 	<WDYS.EnableMaxTile>Enable distance filtering</WDYS.EnableMaxTile>
-	<WDYS.NoPath>Can't go there on foot</WDYS.NoPath>
+	<WDYS.NoPath>Impossible to reach on foot.</WDYS.NoPath>
 	<WDYS.OnlyShowReachable>Only show reachable settlement trade stock</WDYS.OnlyShowReachable>
 </LanguageData>
