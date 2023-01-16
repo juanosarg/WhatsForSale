@@ -195,18 +195,23 @@ namespace WDYS
 
         private void FindValidSettlements()
         {
-            int nTile = Find.CurrentMap.Tile;
-            foreach (Settlement s in Find.World.worldObjects.Settlements)
+            var nTile = Find.CurrentMap.Tile;
+            var worldGrid = Find.WorldGrid;
+            var settlements = Find.World.worldObjects.Settlements;
+
+            for (int i = 0; i < settlements.Count; i++)
             {
-                int dist = Find.WorldGrid.TraversalDistanceBetween(s.Tile, nTile, false);
+                var s = settlements[i];
+                int dist = worldGrid.TraversalDistanceBetween(s.Tile, nTile, false);
                 // Skip if cannot reach
-                if (dist == int.MaxValue)
+                if (WDYS_Mod.settings.onlyShowReachable && dist == int.MaxValue)
                     continue;
 
-                if (s.Faction != Faction.OfPlayer &&
+                var fac = s.Faction;
+                if (fac != Faction.OfPlayer &&
                     s.CanTradeNow &&
-                    !s.Faction.HostileTo(Faction.OfPlayer) &&
-                    (!WDYS_Mod.settings.activateMaxTile || (WDYS_Mod.settings.activateMaxTile && dist <= WDYS_Mod.settings.maxTiles)) &&
+                    !fac.HostileTo(Faction.OfPlayer) &&
+                    (!WDYS_Mod.settings.activateMaxTile || (WDYS_Mod.settings.activateMaxTile && dist <= WDYS_Mod.settings.maxTiles) || (!WDYS_Mod.settings.onlyShowReachable && dist == int.MaxValue)) &&
                     (!WDYS_Mod.settings.onlyIndustrialAndHigher || (WDYS_Mod.settings.onlyIndustrialAndHigher && s.Faction.def.techLevel >= TechLevel.Industrial)))
                 {
                     traders.Add(s);
@@ -524,7 +529,7 @@ namespace WDYS
                 if (Mouse.IsOver(settlementNameRect))
                 {
                     Widgets.DrawHighlight(settlementNameRect);
-                    TooltipHandler.TipRegion(settlementNameRect, traderTileDistance[settlement] != -1 ? "WDYS.TilesAway".Translate(settlement.Name, traderTileDistance[settlement]) : "WDYS.NoPath".Translate());
+                    TooltipHandler.TipRegion(settlementNameRect, traderTileDistance[settlement] != -1 && traderTileDistance[settlement] != int.MaxValue ? "WDYS.TilesAway".Translate(settlement.Name, traderTileDistance[settlement]) : "WDYS.NoPath".Translate());
                 }
                 // Invisible jump rect
                 Rect jumpRect = new Rect(num, 0f, 30f + 120f, rect.height);

@@ -11,6 +11,7 @@ namespace WDYS
         public bool activateGlobalStockTab = true;
         public bool activateMaxTile = true;
         public float maxTiles = 40f;
+        public bool onlyShowReachable = true;
 
         public override void ExposeData()
         {
@@ -20,6 +21,7 @@ namespace WDYS
             Scribe_Values.Look(ref needTradeConsole, "needTradeConsole", true);
             Scribe_Values.Look(ref activateMaxTile, "activateMaxTile", true);
             Scribe_Values.Look(ref maxTiles, "maxTiles", 40f);
+            Scribe_Values.Look(ref onlyShowReachable, "onlyShowReachable", true);
         }
     }
 
@@ -51,6 +53,8 @@ namespace WDYS
                 lst.Label("WDYS.MaxDays".Translate(settings.maxTiles));
                 settings.maxTiles = lst.Slider(settings.maxTiles, 1f, 100f);
             }
+            lst.GapLine();
+            lst.CheckboxLabeled("WDYS.OnlyShowReachable".Translate() + ": ", ref settings.onlyShowReachable);
             lst.End();
             settings.Write();
         }
