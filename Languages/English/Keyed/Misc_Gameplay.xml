@@ -7,10 +7,10 @@
 	<WDYS.HaveXSilver>{0} have {1} silver</WDYS.HaveXSilver>
 	<WDYS.SearchBar>Search in trade stock: </WDYS.SearchBar>
 	<WDYS.MarketValue>Market value. This doesn't take into account your potential colonist price impact.</WDYS.MarketValue>
-	<WDYS.Pawn>{0} is your best trader ({1} improvement). Price will be showed according to this.</WDYS.Pawn>
+	<WDYS.Pawn>{0} is your best trader ({1} improvement). Price will be shown according to this.</WDYS.Pawn>
 	<WDYS.NeedTradeConsoleUI>You need a powered trade console to receive trade stock information</WDYS.NeedTradeConsoleUI>
 	<WDYS.Pawns>Pawns</WDYS.Pawns>
-	<WDYS.ResourcesRaw>Raw ressources</WDYS.ResourcesRaw>
+	<WDYS.ResourcesRaw>Raw resources</WDYS.ResourcesRaw>
 	<WDYS.Manufactured>Manufactured</WDYS.Manufactured>
 	<WDYS.Apparel>Apparel</WDYS.Apparel>
 	<WDYS.Weapons>Weapons</WDYS.Weapons>
@@ -26,7 +26,7 @@
 	<WDYS.OnlyIndustrial>Only industrial and higher tech level faction can send you their trade stock information</WDYS.OnlyIndustrial>
   <WDYS.NeedTradeConsole>You need a trade console to receive trade stock information</WDYS.NeedTradeConsole>
   <WDYS.GlobalStockTab>Global search tab</WDYS.GlobalStockTab>
-	<WDYS.MaxDays>Only get trade stock of settlement {0} tiles or less away from the negotiator settlement/caravan</WDYS.MaxDays>
+	<WDYS.MaxDays>Only get trade stock of settlements {0} tiles or less away from the negotiator's settlement/caravan</WDYS.MaxDays>
 	<WDYS.NoTrader>No traders available</WDYS.NoTrader>
 	<WDYS.TilesAway>{0} is {1} tiles away</WDYS.TilesAway>
 	<WDYS.EnableMaxTile>Enable distance filtering</WDYS.EnableMaxTile>
