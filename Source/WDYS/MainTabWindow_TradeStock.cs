@@ -117,7 +117,7 @@ namespace WDYS
             Rect pawnIconRow = new Rect(10f, 10f + num, 40f, 40f);
             Widgets.ThingIcon(pawnIconRow, negotiator);
             Rect pawnTextRow = new Rect(70f, 10f + num, windowRect.width - 70f, 40f);
-            Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator.NameFullColored, negotiatorStat.ToStringPercent()));
+            Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator?.NameFullColored ?? string.Empty, negotiatorStat.ToStringPercent()));
             num += 50f;
 
             Rect mainRect = new Rect(0f, 10f + num, inRect.width, inRect.height - num - 10f);
