@@ -37,7 +37,7 @@ namespace WDYS
             absorbInputAroundWindow = true;
             this.trader = trader;
             this.negotiator = negotiator;
-            negotiatorStat = this.negotiator.GetStatValue(StatDefOf.TradePriceImprovement);
+            negotiatorStat = this.negotiator?.GetStatValue(StatDefOf.TradePriceImprovement) ?? 0f;
             this.settlement = settlement;
 
             TradeSession.playerNegotiator = this.negotiator;
@@ -76,11 +76,15 @@ namespace WDYS
             num += 50f;
 
             // Draw pawn
-            Rect pawnIconRow = new Rect(0f, 10f + num, 40f, 40f);
-            Widgets.ThingIcon(pawnIconRow, negotiator);
-            Rect pawnTextRow = new Rect(60f, 10f + num, windowRect.width - 60f, 40f);
-            Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator.NameFullColored, negotiatorStat.ToStringPercent()));
-            num += 50f;
+
+            if (negotiator != null)
+            {
+                Rect pawnIconRow = new Rect(0f, 10f + num, 40f, 40f);
+                Rect pawnTextRow = new Rect(60f, 10f + num, windowRect.width - 60f, 40f);
+                Widgets.ThingIcon(pawnIconRow, negotiator);
+                Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator?.NameFullColored ?? "", negotiatorStat.ToStringPercent()));
+                num += 50f;
+            }
 
             // Draw settlement money
             Rect settlementMoneyRect = new Rect(0f, num, inRect.width - 16f, 30f);

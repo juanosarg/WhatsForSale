@@ -114,11 +114,14 @@ namespace WDYS
 
             // Draw pawn
             Text.Anchor = TextAnchor.MiddleLeft;
-            Rect pawnIconRow = new Rect(10f, 10f + num, 40f, 40f);
-            Widgets.ThingIcon(pawnIconRow, negotiator);
-            Rect pawnTextRow = new Rect(70f, 10f + num, windowRect.width - 70f, 40f);
-            Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator.NameFullColored, negotiatorStat.ToStringPercent()));
-            num += 50f;
+            if (negotiator != null)
+            {
+                Rect pawnIconRow = new Rect(10f, 10f + num, 40f, 40f);
+                Rect pawnTextRow = new Rect(70f, 10f + num, windowRect.width - 70f, 40f);
+                Widgets.ThingIcon(pawnIconRow, negotiator);
+                Widgets.Label(pawnTextRow, "WDYS.Pawn".Translate(negotiator.NameFullColored, negotiatorStat.ToStringPercent()));
+                num += 50f;
+            }
 
             Rect mainRect = new Rect(0f, 10f + num, inRect.width, inRect.height - num - 10f);
             if (traders.Count > 0 && ((WDYS_Mod.settings.needTradeConsole && haveConsole) || !WDYS_Mod.settings.needTradeConsole))
@@ -297,7 +300,7 @@ namespace WDYS
             {
                 if (pawn.IsColonist && !pawn.WorkTagIsDisabled(WorkTags.Social))
                 {
-                    float tempStat = pawn.GetStatValue(StatDefOf.TradePriceImprovement);
+                    float tempStat = pawn?.GetStatValue(StatDefOf.TradePriceImprovement) ?? 0f;
                     if (tempStat > negotiatorStat)
                     {
                         negotiatorStat = tempStat;
