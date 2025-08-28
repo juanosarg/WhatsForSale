@@ -4,7 +4,7 @@
     <defName>WFS_TradeStock</defName>
     <label>trade stock</label>
     <description>Examine the world current trade stock.</description>
-    <tabWindowClass>WDYS.MainTabWindow_TradeStock</tabWindowClass>
+    <tabWindowClass>WhatsForSale.MainTabWindow_TradeStock</tabWindowClass>
     <order>75</order>
     <validWithoutMap>true</validWithoutMap>
     <minimized>True</minimized>
