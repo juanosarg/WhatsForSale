@@ -4,5 +4,5 @@
     <exclude>.git</exclude>
     <exclude>Art</exclude>
     <exclude>Source</exclude>
-  </Excluded>
+  </Excluded> 
 </Configuration>
