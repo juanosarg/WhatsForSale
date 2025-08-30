@@ -8,7 +8,6 @@
 	<WDYS.SearchBar>Search in trade stock: </WDYS.SearchBar>
 	<WDYS.MarketValue>Market value. This doesn't take into account your potential colonist price impact.</WDYS.MarketValue>
 	<WDYS.Pawn>{0} is your best trader ({1} improvement). Price will be shown according to this.</WDYS.Pawn>
-	<WDYS.PawnNotFound>No suitable negotiator found</WDYS.PawnNotFound>
 	<WDYS.NeedTradeConsoleUI>You need a powered trade console to receive trade stock information</WDYS.NeedTradeConsoleUI>
 	<WDYS.Pawns>Pawns</WDYS.Pawns>
 	<WDYS.ResourcesRaw>Raw resources</WDYS.ResourcesRaw>
@@ -23,14 +22,14 @@
 	<WDYS.Reset>Reset</WDYS.Reset>
 	<WDYS.ResetToolTip>Reset window.\n(This is not done automatically for performance reasons)</WDYS.ResetToolTip>
 	<WDYS>What's for sale?</WDYS>
+
 	<WDYS.OnlyIndustrial>Only industrial and higher tech level faction can send you their trade stock information</WDYS.OnlyIndustrial>
-	<WDYS.NeedTradeConsole>You need a trade console to receive trade stock information</WDYS.NeedTradeConsole>
-	<WDYS.GlobalStockTab>Global search tab</WDYS.GlobalStockTab>
+  <WDYS.NeedTradeConsole>You need a trade console to receive trade stock information</WDYS.NeedTradeConsole>
+  <WDYS.GlobalStockTab>Global search tab</WDYS.GlobalStockTab>
 	<WDYS.MaxDays>Only get trade stock of settlements {0} tiles or less away from the negotiator's settlement/caravan</WDYS.MaxDays>
 	<WDYS.NoTrader>No traders available</WDYS.NoTrader>
 	<WDYS.TilesAway>{0} is {1} tiles away</WDYS.TilesAway>
 	<WDYS.EnableMaxTile>Enable distance filtering</WDYS.EnableMaxTile>
 	<WDYS.NoPath>Impossible to reach on foot.</WDYS.NoPath>
 	<WDYS.OnlyShowReachable>Only show reachable settlement trade stock</WDYS.OnlyShowReachable>
-	<WDYS.FilterByRoyalTitleEligibility>Only show royal traders your colonists can negotiate with</WDYS.FilterByRoyalTitleEligibility>
 </LanguageData>
