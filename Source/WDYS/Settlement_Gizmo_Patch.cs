@@ -34,14 +34,14 @@ namespace WDYS
                         float stat = 0f;
                         foreach (Map map in Find.Maps)
                         {
-                            if (map.ParentFaction == Faction.OfPlayer)
+                            // if (map.ParentFaction == Faction.OfPlayer)
                             {
                                 foreach (Pawn pawn in map.mapPawns.FreeColonistsSpawned)
                                 {
                                     if (pawn.IsColonist && !pawn.WorkTagIsDisabled(WorkTags.Social))
                                     {
-                                        float tempStat = pawn.GetStatValue(StatDefOf.TradePriceImprovement);
-                                        if (tempStat > stat)
+                                        float tempStat = pawn?.GetStatValue(StatDefOf.TradePriceImprovement) ?? 0f;
+                                        if (tempStat >= stat)
                                         {
                                             stat = tempStat;
                                             negotiator = pawn;
@@ -58,8 +58,8 @@ namespace WDYS
                                 {
                                     if (pawn.IsColonist && !pawn.WorkTagIsDisabled(WorkTags.Social))
                                     {
-                                        float tempStat = pawn.GetStatValue(StatDefOf.TradePriceImprovement);
-                                        if (tempStat > stat)
+                                        float tempStat = pawn?.GetStatValue(StatDefOf.TradePriceImprovement) ?? 0f;
+                                        if (tempStat >= stat)
                                         {
                                             stat = tempStat;
                                             negotiator = pawn;
